@@ -138,6 +138,117 @@
             50% { transform: translateY(-6px); }
         }
 
+        /* ==================== FINALE SLIDE ANIMATIONS ==================== */
+
+        @keyframes finaleGradientShift {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 100% 50%; }
+            50% { background-position: 100% 0%; }
+            75% { background-position: 0% 100%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes finaleTextReveal {
+            0% { opacity: 0; transform: translateY(60px) scale(0.8); filter: blur(20px); }
+            60% { opacity: 1; filter: blur(0); }
+            80% { transform: translateY(-5px) scale(1.02); }
+            100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+        }
+
+        @keyframes finaleRingPulse {
+            0% { transform: translate(-50%, -50%) scale(0.3); opacity: 0.8; border-width: 3px; }
+            100% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; border-width: 1px; }
+        }
+
+        @keyframes finaleOrbit {
+            0% { transform: rotate(0deg) translateX(200px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(200px) rotate(-360deg); }
+        }
+
+        @keyframes finaleOrbitReverse {
+            0% { transform: rotate(0deg) translateX(280px) rotate(0deg); }
+            100% { transform: rotate(-360deg) translateX(280px) rotate(360deg); }
+        }
+
+        @keyframes finalePillFloat {
+            0% { opacity: 0; transform: translateY(40px) scale(0.7); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        @keyframes finaleGlow {
+            0%, 100% { box-shadow: 0 0 30px rgba(0, 115, 240, 0.3), 0 0 60px rgba(0, 115, 240, 0.1), 0 0 120px rgba(0, 115, 240, 0.05); }
+            33% { box-shadow: 0 0 30px rgba(254, 186, 53, 0.3), 0 0 60px rgba(254, 186, 53, 0.1), 0 0 120px rgba(254, 186, 53, 0.05); }
+            66% { box-shadow: 0 0 30px rgba(0, 133, 63, 0.3), 0 0 60px rgba(0, 133, 63, 0.1), 0 0 120px rgba(0, 133, 63, 0.05); }
+        }
+
+        @keyframes finaleStarTwinkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes finaleLineExpand {
+            0% { width: 0; opacity: 0; }
+            50% { opacity: 1; }
+            100% { width: 100%; opacity: 0.4; }
+        }
+
+        @keyframes finaleCountUp {
+            0% { opacity: 0; transform: scale(0.5) rotateX(90deg); }
+            60% { transform: scale(1.1) rotateX(-5deg); }
+            100% { opacity: 1; transform: scale(1) rotateX(0); }
+        }
+
+        @keyframes finaleBorderChase {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 200% 0%; }
+        }
+
+        .slide-finale.active .finale-hero {
+            animation: finaleTextReveal 1.2s var(--ease-out-expo) forwards;
+            animation-delay: 0.1s;
+            opacity: 0;
+        }
+
+        .slide-finale.active .finale-message {
+            animation: finaleTextReveal 1s var(--ease-out-expo) forwards;
+            animation-delay: 0.5s;
+            opacity: 0;
+        }
+
+        .slide-finale.active .finale-subtitle {
+            animation: finaleTextReveal 0.8s var(--ease-out-expo) forwards;
+            animation-delay: 0.7s;
+            opacity: 0;
+        }
+
+        .slide-finale.active .finale-pill:nth-child(1) {
+            animation: finalePillFloat 0.7s var(--ease-spring) forwards;
+            animation-delay: 1s;
+            opacity: 0;
+        }
+        .slide-finale.active .finale-pill:nth-child(2) {
+            animation: finalePillFloat 0.7s var(--ease-spring) forwards;
+            animation-delay: 1.15s;
+            opacity: 0;
+        }
+        .slide-finale.active .finale-pill:nth-child(3) {
+            animation: finalePillFloat 0.7s var(--ease-spring) forwards;
+            animation-delay: 1.3s;
+            opacity: 0;
+        }
+
+        .slide-finale.active .finale-cta {
+            animation: finaleCountUp 1s var(--ease-spring) forwards;
+            animation-delay: 1.6s;
+            opacity: 0;
+        }
+
+        .slide-finale.active .finale-footer {
+            animation: finaleTextReveal 0.8s var(--ease-out-expo) forwards;
+            animation-delay: 2.1s;
+            opacity: 0;
+        }
+
         /* ==================== BASE ==================== */
 
         * {
@@ -1715,6 +1826,13 @@
             </div>
         </div>
 
+        <!-- Page 10: Demo — From Requirements to AI Development -->
+        <div class="slide slide-title" data-slide="10">
+            <h1>Live Demo</h1>
+            <p class="subtitle">From Requirements &amp; Planning Artifacts to AI Development</p>
+            <p class="hook">See how your PRD, requirements, and journey map become the inputs for AI-assisted development — turning planning artifacts into a working product.</p>
+        </div>
+
         <!-- Slide 14: Build Sprint -->
         <div class="slide" data-slide="14">
             <div class="module-header">Module 4: Build Sprint</div>
@@ -2172,60 +2290,202 @@ The email should:
         <!-- Slide 25: Resources -->
         <div class="slide" data-slide="25">
             <div class="module-header">Resources</div>
-            <h2>Keep learning and building</h2>
+            <h2 style="margin-bottom: 8px;">Your AI toolkit</h2>
+            <p style="text-align: center; color: var(--text-secondary); font-size: 1.05rem; margin-bottom: 20px;">Everything you need to keep building after today</p>
 
-            <div class="cards-grid">
-                <div class="card">
-                    <h4>Building Tools</h4>
-                    <ul style="font-size: 1rem; margin-left: 20px;">
-                        <li><a href="https://v0.dev" target="_blank" style="color: var(--accent-light);">v0.dev</a> - AI UI generation</li>
-                        <li><a href="https://bolt.new" target="_blank" style="color: var(--accent-light);">Bolt.new</a> - Full-stack builder</li>
-                        <li><a href="https://cursor.com" target="_blank" style="color: var(--accent-light);">Cursor</a> - AI code editor</li>
-                        <li><a href="https://replit.com" target="_blank" style="color: var(--accent-light);">Replit</a> - Code & deploy</li>
-                    </ul>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+
+                <!-- Building Tools -->
+                <div style="background: linear-gradient(160deg, rgba(0, 115, 240, 0.15) 0%, rgba(21, 32, 48, 0.8) 50%); border: 1px solid rgba(0, 115, 240, 0.25); border-radius: var(--radius-md); padding: 22px 24px; position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gradient-1);"></div>
+                    <h4 style="color: var(--accent-light); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 14px;">Building Tools</h4>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <a href="https://v0.dev" target="_blank" style="color: var(--text-primary); text-decoration: none; font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; padding: 6px 10px; border-radius: 6px; transition: background 0.2s; background: rgba(255,255,255,0.03);">
+                            <span style="font-weight: 600;">v0.dev</span><span style="color: var(--text-secondary); font-size: 0.8rem;">AI UI generation</span>
+                        </a>
+                        <a href="https://bolt.new" target="_blank" style="color: var(--text-primary); text-decoration: none; font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; padding: 6px 10px; border-radius: 6px; transition: background 0.2s; background: rgba(255,255,255,0.03);">
+                            <span style="font-weight: 600;">Bolt.new</span><span style="color: var(--text-secondary); font-size: 0.8rem;">Full-stack builder</span>
+                        </a>
+                        <a href="https://cursor.com" target="_blank" style="color: var(--text-primary); text-decoration: none; font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; padding: 6px 10px; border-radius: 6px; transition: background 0.2s; background: rgba(255,255,255,0.03);">
+                            <span style="font-weight: 600;">Cursor</span><span style="color: var(--text-secondary); font-size: 0.8rem;">AI code editor</span>
+                        </a>
+                        <a href="https://replit.com" target="_blank" style="color: var(--text-primary); text-decoration: none; font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; padding: 6px 10px; border-radius: 6px; transition: background 0.2s; background: rgba(255,255,255,0.03);">
+                            <span style="font-weight: 600;">Replit</span><span style="color: var(--text-secondary); font-size: 0.8rem;">Code &amp; deploy</span>
+                        </a>
+                        <a href="https://claude.ai/code" target="_blank" style="color: var(--text-primary); text-decoration: none; font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; padding: 6px 10px; border-radius: 6px; transition: background 0.2s; background: rgba(255,255,255,0.03);">
+                            <span style="font-weight: 600;">Claude Code</span><span style="color: var(--text-secondary); font-size: 0.8rem;">AI coding agent</span>
+                        </a>
+                        <a href="https://openai.com/index/introducing-codex/" target="_blank" style="color: var(--text-primary); text-decoration: none; font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; padding: 6px 10px; border-radius: 6px; transition: background 0.2s; background: rgba(255,255,255,0.03);">
+                            <span style="font-weight: 600;">OpenAI Codex</span><span style="color: var(--text-secondary); font-size: 0.8rem;">AI coding agent</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="card">
-                    <h4>GTM Tools</h4>
-                    <ul style="font-size: 1rem; margin-left: 20px;">
-                        <li><a href="https://clay.com" target="_blank" style="color: var(--accent-light);">Clay</a> - Lead enrichment</li>
-                        <li><a href="https://apollo.io" target="_blank" style="color: var(--accent-light);">Apollo</a> - Sales intelligence</li>
-                        <li><a href="https://lemlist.com" target="_blank" style="color: var(--accent-light);">Lemlist</a> - Email outreach</li>
-                    </ul>
+
+                <!-- GTM Tools -->
+                <div style="background: linear-gradient(160deg, rgba(254, 186, 53, 0.12) 0%, rgba(21, 32, 48, 0.8) 50%); border: 1px solid rgba(254, 186, 53, 0.2); border-radius: var(--radius-md); padding: 22px 24px; position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gradient-gold);"></div>
+                    <h4 style="color: var(--alberta-gold); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 14px;">GTM Tools</h4>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <a href="https://clay.com" target="_blank" style="color: var(--text-primary); text-decoration: none; font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; padding: 6px 10px; border-radius: 6px; transition: background 0.2s; background: rgba(255,255,255,0.03);">
+                            <span style="font-weight: 600;">Clay</span><span style="color: var(--text-secondary); font-size: 0.8rem;">Lead enrichment</span>
+                        </a>
+                        <a href="https://apollo.io" target="_blank" style="color: var(--text-primary); text-decoration: none; font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; padding: 6px 10px; border-radius: 6px; transition: background 0.2s; background: rgba(255,255,255,0.03);">
+                            <span style="font-weight: 600;">Apollo</span><span style="color: var(--text-secondary); font-size: 0.8rem;">Sales intelligence</span>
+                        </a>
+                        <a href="https://lemlist.com" target="_blank" style="color: var(--text-primary); text-decoration: none; font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; padding: 6px 10px; border-radius: 6px; transition: background 0.2s; background: rgba(255,255,255,0.03);">
+                            <span style="font-weight: 600;">Lemlist</span><span style="color: var(--text-secondary); font-size: 0.8rem;">Email outreach</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="card">
-                    <h4>Learning</h4>
-                    <ul style="font-size: 1rem; margin-left: 20px;">
-                        <li><a href="https://www.youtube.com/@buildspace" target="_blank" style="color: var(--accent-light);">Buildspace</a> - Building in public</li>
-                        <li><a href="https://www.indiehackers.com" target="_blank" style="color: var(--accent-light);">Indie Hackers</a> - Community</li>
-                        <li><a href="https://www.lennysnewsletter.com" target="_blank" style="color: var(--accent-light);">Lenny's Newsletter</a> - PM insights</li>
-                    </ul>
+
+                <!-- Design Research AI -->
+                <div style="background: linear-gradient(160deg, rgba(0, 133, 63, 0.15) 0%, rgba(21, 32, 48, 0.8) 50%); border: 1px solid rgba(0, 133, 63, 0.25); border-radius: var(--radius-md); padding: 22px 24px; position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gradient-2);"></div>
+                    <h4 style="color: #4ade80; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 14px;">Design Research AI</h4>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <a href="https://outset.ai" target="_blank" style="color: var(--text-primary); text-decoration: none; font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; padding: 6px 10px; border-radius: 6px; transition: background 0.2s; background: rgba(255,255,255,0.03);">
+                            <span style="font-weight: 600;">Outset.ai</span><span style="color: var(--text-secondary); font-size: 0.8rem;">AI user interviews</span>
+                        </a>
+                        <a href="https://dovetail.com" target="_blank" style="color: var(--text-primary); text-decoration: none; font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; padding: 6px 10px; border-radius: 6px; transition: background 0.2s; background: rgba(255,255,255,0.03);">
+                            <span style="font-weight: 600;">Dovetail</span><span style="color: var(--text-secondary); font-size: 0.8rem;">Research analysis</span>
+                        </a>
+                        <a href="https://www.syntheticusers.com" target="_blank" style="color: var(--text-primary); text-decoration: none; font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; padding: 6px 10px; border-radius: 6px; transition: background 0.2s; background: rgba(255,255,255,0.03);">
+                            <span style="font-weight: 600;">Synthetic Users</span><span style="color: var(--text-secondary); font-size: 0.8rem;">AI user testing</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="card">
-                    <h4>Prompt Libraries</h4>
-                    <ul style="font-size: 1rem; margin-left: 20px;">
-                        <li><a href="https://github.com/f/awesome-chatgpt-prompts" target="_blank" style="color: var(--accent-light);">Awesome ChatGPT Prompts</a></li>
-                        <li><a href="https://www.anthropic.com/prompts" target="_blank" style="color: var(--accent-light);">Claude Prompts</a></li>
-                    </ul>
+
+                <!-- Automation -->
+                <div style="background: linear-gradient(160deg, rgba(168, 85, 247, 0.15) 0%, rgba(21, 32, 48, 0.8) 50%); border: 1px solid rgba(168, 85, 247, 0.25); border-radius: var(--radius-md); padding: 22px 24px; position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%);"></div>
+                    <h4 style="color: #c084fc; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 14px;">Automation</h4>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <a href="https://posthog.com" target="_blank" style="color: var(--text-primary); text-decoration: none; font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; padding: 6px 10px; border-radius: 6px; transition: background 0.2s; background: rgba(255,255,255,0.03);">
+                            <span style="font-weight: 600;">PostHog</span><span style="color: var(--text-secondary); font-size: 0.8rem;">Product analytics</span>
+                        </a>
+                        <a href="https://zapier.com" target="_blank" style="color: var(--text-primary); text-decoration: none; font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; padding: 6px 10px; border-radius: 6px; transition: background 0.2s; background: rgba(255,255,255,0.03);">
+                            <span style="font-weight: 600;">Zapier</span><span style="color: var(--text-secondary); font-size: 0.8rem;">Workflow automation</span>
+                        </a>
+                        <a href="https://n8n.io" target="_blank" style="color: var(--text-primary); text-decoration: none; font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; padding: 6px 10px; border-radius: 6px; transition: background 0.2s; background: rgba(255,255,255,0.03);">
+                            <span style="font-weight: 600;">n8n</span><span style="color: var(--text-secondary); font-size: 0.8rem;">Open-source automation</span>
+                        </a>
+                        <a href="https://openclaw.com" target="_blank" style="color: var(--text-primary); text-decoration: none; font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; padding: 6px 10px; border-radius: 6px; transition: background 0.2s; background: rgba(255,255,255,0.03);">
+                            <span style="font-weight: 600;">OpenClaw</span><span style="color: var(--text-secondary); font-size: 0.8rem;">AI automation</span>
+                        </a>
+                    </div>
                 </div>
+
+                <!-- Prompt Libraries -->
+                <div style="background: linear-gradient(160deg, rgba(236, 72, 153, 0.12) 0%, rgba(21, 32, 48, 0.8) 50%); border: 1px solid rgba(236, 72, 153, 0.2); border-radius: var(--radius-md); padding: 22px 24px; position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(135deg, #ec4899 0%, #f97316 100%);"></div>
+                    <h4 style="color: #f472b6; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 14px;">Prompt Libraries</h4>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <a href="https://github.com/f/awesome-chatgpt-prompts" target="_blank" style="color: var(--text-primary); text-decoration: none; font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; padding: 6px 10px; border-radius: 6px; transition: background 0.2s; background: rgba(255,255,255,0.03);">
+                            <span style="font-weight: 600;">Awesome ChatGPT Prompts</span>
+                        </a>
+                        <a href="https://www.anthropic.com/prompts" target="_blank" style="color: var(--text-primary); text-decoration: none; font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; padding: 6px 10px; border-radius: 6px; transition: background 0.2s; background: rgba(255,255,255,0.03);">
+                            <span style="font-weight: 600;">Claude Prompts</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Learning -->
+                <div style="background: linear-gradient(160deg, rgba(56, 189, 248, 0.12) 0%, rgba(21, 32, 48, 0.8) 50%); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: var(--radius-md); padding: 22px 24px; position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);"></div>
+                    <h4 style="color: #7dd3fc; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 14px;">Learning</h4>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <a href="https://www.youtube.com/@buildspace" target="_blank" style="color: var(--text-primary); text-decoration: none; font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; padding: 6px 10px; border-radius: 6px; transition: background 0.2s; background: rgba(255,255,255,0.03);">
+                            <span style="font-weight: 600;">Buildspace</span><span style="color: var(--text-secondary); font-size: 0.8rem;">Building in public</span>
+                        </a>
+                        <a href="https://www.indiehackers.com" target="_blank" style="color: var(--text-primary); text-decoration: none; font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; padding: 6px 10px; border-radius: 6px; transition: background 0.2s; background: rgba(255,255,255,0.03);">
+                            <span style="font-weight: 600;">Indie Hackers</span><span style="color: var(--text-secondary); font-size: 0.8rem;">Community</span>
+                        </a>
+                        <a href="https://www.lennysnewsletter.com" target="_blank" style="color: var(--text-primary); text-decoration: none; font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; padding: 6px 10px; border-radius: 6px; transition: background 0.2s; background: rgba(255,255,255,0.03);">
+                            <span style="font-weight: 600;">Lenny's Newsletter</span><span style="color: var(--text-secondary); font-size: 0.8rem;">PM insights</span>
+                        </a>
+                    </div>
+                </div>
+
             </div>
-
-            
         </div>
 
-        <!-- Slide 26: Q&A -->
-        <div class="slide slide-title" data-slide="26">
-            <h1>Q&A</h1>
-            <p class="subtitle">What questions do you have?</p>
+        <!-- Slide 26: Finale -->
+        <div class="slide slide-title slide-finale" data-slide="26" style="justify-content: center; overflow: hidden;">
 
-            <div style="margin-top: 60px; text-align: center;">
-                <p style="font-size: 1.3rem; color: var(--text-secondary); margin-bottom: 30px;">
-                    Connect after the workshop — let's see what you build next
-                </p>
+            <!-- Animated background rings -->
+            <div style="position: absolute; top: 50%; left: 50%; width: 0; height: 0; z-index: 0; pointer-events: none;">
+                <div style="position: absolute; top: 50%; left: 50%; width: 400px; height: 400px; border: 2px solid rgba(0, 115, 240, 0.15); border-radius: 50%; animation: finaleRingPulse 4s ease-out infinite;"></div>
+                <div style="position: absolute; top: 50%; left: 50%; width: 400px; height: 400px; border: 2px solid rgba(254, 186, 53, 0.12); border-radius: 50%; animation: finaleRingPulse 4s ease-out infinite 1.3s;"></div>
+                <div style="position: absolute; top: 50%; left: 50%; width: 400px; height: 400px; border: 2px solid rgba(0, 133, 63, 0.1); border-radius: 50%; animation: finaleRingPulse 4s ease-out infinite 2.6s;"></div>
             </div>
 
-            <p class="hook" style="margin-top: 60px; font-size: 3rem;">Now go ship something.</p>
+            <!-- Orbiting dots -->
+            <div style="position: absolute; top: 50%; left: 50%; width: 0; height: 0; z-index: 0; pointer-events: none;">
+                <div style="position: absolute; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 15px var(--accent), 0 0 40px rgba(0, 115, 240, 0.3); animation: finaleOrbit 12s linear infinite;"></div>
+                <div style="position: absolute; width: 6px; height: 6px; background: var(--alberta-gold); border-radius: 50%; box-shadow: 0 0 15px var(--alberta-gold), 0 0 40px rgba(254, 186, 53, 0.3); animation: finaleOrbitReverse 16s linear infinite;"></div>
+                <div style="position: absolute; width: 5px; height: 5px; background: #4ade80; border-radius: 50%; box-shadow: 0 0 12px #4ade80, 0 0 30px rgba(74, 222, 128, 0.3); animation: finaleOrbit 20s linear infinite 3s;"></div>
+                <div style="position: absolute; width: 4px; height: 4px; background: #c084fc; border-radius: 50%; box-shadow: 0 0 10px #c084fc; animation: finaleOrbitReverse 14s linear infinite 1s;"></div>
+            </div>
 
-            
+            <!-- Twinkling stars -->
+            <div style="position: absolute; top: 50%; left: 50%; width: 0; height: 0; z-index: 0; pointer-events: none;">
+                <div style="position: absolute; top: -180px; left: -320px; width: 3px; height: 3px; background: white; border-radius: 50%; animation: finaleStarTwinkle 3s ease-in-out infinite 0.5s;"></div>
+                <div style="position: absolute; top: -250px; left: 200px; width: 2px; height: 2px; background: white; border-radius: 50%; animation: finaleStarTwinkle 4s ease-in-out infinite 1.2s;"></div>
+                <div style="position: absolute; top: 120px; left: -400px; width: 3px; height: 3px; background: white; border-radius: 50%; animation: finaleStarTwinkle 3.5s ease-in-out infinite 0.8s;"></div>
+                <div style="position: absolute; top: 200px; left: 350px; width: 2px; height: 2px; background: white; border-radius: 50%; animation: finaleStarTwinkle 5s ease-in-out infinite 2s;"></div>
+                <div style="position: absolute; top: -100px; left: -180px; width: 2px; height: 2px; background: var(--alberta-gold); border-radius: 50%; animation: finaleStarTwinkle 2.8s ease-in-out infinite 1.5s;"></div>
+                <div style="position: absolute; top: 80px; left: 450px; width: 3px; height: 3px; background: var(--accent-light); border-radius: 50%; animation: finaleStarTwinkle 4.2s ease-in-out infinite 0.3s;"></div>
+                <div style="position: absolute; top: -300px; left: -50px; width: 2px; height: 2px; background: #4ade80; border-radius: 50%; animation: finaleStarTwinkle 3.8s ease-in-out infinite 2.5s;"></div>
+                <div style="position: absolute; top: 260px; left: -250px; width: 2px; height: 2px; background: white; border-radius: 50%; animation: finaleStarTwinkle 4.5s ease-in-out infinite 1.8s;"></div>
+            </div>
+
+            <!-- Main content -->
+            <div style="position: relative; z-index: 2; text-align: center;">
+
+                <!-- Hero heading with animated gradient -->
+                <h1 class="finale-hero" style="font-size: 5.5rem; font-weight: 800; margin-bottom: 10px; background: linear-gradient(135deg, #0073F0, #3399FF, #FEBA35, #4ade80, #c084fc, #0073F0); background-size: 400% 400%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: finaleGradientShift 6s ease infinite, finaleTextReveal 1.2s var(--ease-out-expo) forwards; animation-delay: 0s, 0.1s; line-height: 1.1; letter-spacing: -0.03em;">
+                    Q&amp;A
+                </h1>
+
+                <p class="finale-subtitle" style="font-size: 1.5rem; color: var(--text-secondary); font-weight: 300; margin-bottom: 40px; letter-spacing: 0.02em;">What questions do you have?</p>
+
+                <!-- Central glowing card -->
+                <div class="finale-message" style="max-width: 700px; margin: 0 auto 35px; position: relative; border-radius: var(--radius-xl); padding: 3px; background: linear-gradient(135deg, rgba(0, 115, 240, 0.6), rgba(254, 186, 53, 0.6), rgba(0, 133, 63, 0.6), rgba(168, 85, 247, 0.4)); background-size: 200% 200%; animation: finaleGradientShift 4s ease infinite, finaleGlow 6s ease-in-out infinite;">
+                    <div style="background: rgba(10, 10, 10, 0.92); backdrop-filter: blur(20px); border-radius: calc(var(--radius-xl) - 2px); padding: 32px 40px;">
+                        <p style="font-size: 1.6rem; font-weight: 700; color: var(--text-primary); margin: 0 0 10px 0; line-height: 1.3;">
+                            Make AI a daily habit
+                        </p>
+                        <p style="font-size: 1.05rem; color: var(--text-secondary); margin: 0; line-height: 1.7;">
+                            The biggest gap isn&#x2019;t knowledge &#x2014; it&#x2019;s consistency.<br>
+                            The people who get the most from AI use it <em style="color: var(--accent-light); font-style: normal; font-weight: 600;">every single day</em>.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Animated pills -->
+                <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px;">
+                    <span class="finale-pill" style="background: linear-gradient(135deg, rgba(0, 115, 240, 0.2), rgba(0, 115, 240, 0.05)); border: 1px solid rgba(0, 115, 240, 0.4); border-radius: var(--radius-full); padding: 12px 24px; font-size: 1rem; color: var(--accent-light); font-weight: 600; box-shadow: 0 0 20px rgba(0, 115, 240, 0.15); animation: float 3s ease-in-out infinite, finalePillFloat 0.7s var(--ease-spring) forwards; animation-delay: 1s, 1s;">
+                        Try a new tool every week
+                    </span>
+                    <span class="finale-pill" style="background: linear-gradient(135deg, rgba(254, 186, 53, 0.2), rgba(254, 186, 53, 0.05)); border: 1px solid rgba(254, 186, 53, 0.4); border-radius: var(--radius-full); padding: 12px 24px; font-size: 1rem; color: var(--alberta-gold); font-weight: 600; box-shadow: 0 0 20px rgba(254, 186, 53, 0.15); animation: float 3s ease-in-out infinite 0.5s, finalePillFloat 0.7s var(--ease-spring) forwards; animation-delay: 1.15s, 1.15s;">
+                        Bring AI into every project
+                    </span>
+                    <span class="finale-pill" style="background: linear-gradient(135deg, rgba(74, 222, 128, 0.2), rgba(74, 222, 128, 0.05)); border: 1px solid rgba(74, 222, 128, 0.4); border-radius: var(--radius-full); padding: 12px 24px; font-size: 1rem; color: #4ade80; font-weight: 600; box-shadow: 0 0 20px rgba(74, 222, 128, 0.15); animation: float 3s ease-in-out infinite 1s, finalePillFloat 0.7s var(--ease-spring) forwards; animation-delay: 1.3s, 1.3s;">
+                        Share what works with your team
+                    </span>
+                </div>
+
+                <!-- Big CTA -->
+                <div class="finale-cta" style="margin-bottom: 20px;">
+                    <p style="font-size: 3.2rem; font-weight: 800; background: linear-gradient(135deg, #f0f0f0 0%, #3399FF 40%, #FEBA35 70%, #f0f0f0 100%); background-size: 300% 300%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: finaleGradientShift 5s ease infinite; line-height: 1.2; letter-spacing: -0.02em;">
+                        Now go ship something<br>&#x2014; and keep shipping.
+                    </p>
+                </div>
+
+                <p class="finale-footer" style="color: var(--text-dim); font-size: 1rem; letter-spacing: 0.03em;">
+                    Connect after the workshop &#x2014; let&#x2019;s see what you build next
+                </p>
+            </div>
         </div>
 
     </div>
